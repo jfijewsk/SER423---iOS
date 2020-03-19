@@ -61,13 +61,13 @@ class PlaceDescription{
         return R * c
     }
     
-    private func calc_heading(lat1:Double, lon1:Double, lat2:Double, lon2:Double) -> Double {
+    func calc_heading(lat1:Double, lon1:Double, lat2:Double, lon2:Double) -> Double {
         
         let y = sin(lon2-lon1) * cos(lat2);
         let x = cos(lat1)*sin(lat2) -
             sin(lat1)*cos(lat2)*cos(lon2-lon1);
         return (atan2(y, x)) * 180 / Double.pi;
        
-        
     }
+    
 }
