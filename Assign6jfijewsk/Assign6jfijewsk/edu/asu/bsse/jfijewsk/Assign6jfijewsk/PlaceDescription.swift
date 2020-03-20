@@ -23,7 +23,7 @@
 
 import Foundation
 
-class PlaceDescription{
+class PlaceDescription: Decodable{
     
     var name : String
     var description : String
@@ -46,6 +46,20 @@ class PlaceDescription{
         self.longitude = longitude
     }
     
+    // JSON Contructor
+    // TODO
+    init(json : String){
+        self.name = "name"
+        self.description = "description"
+        self.category = "category"
+        self.address_title = "address_title"
+        self.address = "address"
+        self.elevation = 0.0
+        self.latitude = 0.0
+        self.longitude = 0.0
+    }
+    
+    // NEED TO TEST
     func calc_distance(lat1:Double, lon1:Double, lat2:Double, lon2:Double) -> Double {
         let lat1rad = lat1 * Double.pi/180
         let lon1rad = lon1 * Double.pi/180
@@ -61,6 +75,7 @@ class PlaceDescription{
         return R * c
     }
     
+    // NEED TO TEST
     func calc_heading(lat1:Double, lon1:Double, lat2:Double, lon2:Double) -> Double {
         
         let y = sin(lon2-lon1) * cos(lat2);
