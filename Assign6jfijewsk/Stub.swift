@@ -112,19 +112,5 @@ public class StudentCollectionStub {
 //let place:PlaceDescription = PlaceDescription(jsonStr: "{\"name\":\"Tim Lindquist\", \"studentid\":629, \"takes\":[\"Ser423\",\"Ser321\",\"Cse445\"]}")
 //print("Student: \(aStud.toJsonString())")
 
-// the ip 127.0.0.1 is the simplest form for localhost. This is the ip and port of the student collection server.
-let aConnect:StudentCollectionStub = StudentCollectionStub(urlString: "http://127.0.0.1:8080")
-let resGetNames:Bool = aConnect.getNames(callback: { (res: String, err: String?) -> Void in
-    if err != nil {
-        print("Error in getting names: \(String(describing: err))")
-    }else{
-        // no error, then the result, is a jsonrpc response with the value of result being an array of student names.
-        print("jsonrpc response to getNames is: \(res)")
-        let names:[String] = aConnect.getStringArrayResult(jsonRPCResult: res)
-        print("registered students are:")
-        for aName in names {
-            print("   \(aName)")
-        }
-    }
-})
+
 

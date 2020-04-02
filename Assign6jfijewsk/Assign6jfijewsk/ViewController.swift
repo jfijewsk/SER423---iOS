@@ -10,11 +10,15 @@ import UIKit
 
 
 class ViewController: UIViewController {
+    
+    var urlAddress = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
+        
+        // Read in infoPlist values
+        readPropertyList()
         getNames()
     }
     
@@ -40,7 +44,17 @@ class ViewController: UIViewController {
     }
     
     
-    
+    func readPropertyList() {
+        // Getting info plist as a dictionary
+        do{
+            let dictionary = Bundle.main.infoDictionary
+            urlAddress = dictionary?["ServerUrl"] as! String
+        }
+        catch {
+            print("Error reading plist")
+            urlAddress = "http://127.0.0.1:8080"
+        }
+    }
     
 
     // Gets the names of the locations from the server
