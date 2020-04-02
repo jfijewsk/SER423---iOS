@@ -59,7 +59,7 @@ class ViewController: UIViewController {
 
     // Gets the names of the locations from the server
     func getNames(){
-        var stub = StudentCollectionStub(urlString: "http://127.0.0.1:8080")
+        var stub = StudentCollectionStub(urlString: urlAddress)
 
         let resGetNames:Bool = stub.getNames(callback: { (res: String, err: String?) -> Void in
             if err != nil {
