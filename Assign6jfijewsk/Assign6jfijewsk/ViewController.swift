@@ -46,22 +46,16 @@ class ViewController: UIViewController {
     
     func readPropertyList() {
         // Getting info plist as a dictionary
-        do{
-            let dictionary = Bundle.main.infoDictionary
-            urlAddress = dictionary?["ServerUrl"] as! String
-        }
-        catch {
-            print("Error reading plist")
-            urlAddress = "http://127.0.0.1:8080"
-        }
+        let dictionary = Bundle.main.infoDictionary
+        urlAddress = (dictionary!["ServerUrl"] as? String)!
     }
     
 
     // Gets the names of the locations from the server
     func getNames(){
-        var stub = StudentCollectionStub(urlString: urlAddress)
+        let stub = StudentCollectionStub(urlString: urlAddress)
 
-        let resGetNames:Bool = stub.getNames(callback: { (res: String, err: String?) -> Void in
+        let _:Bool = stub.getNames(callback: { (res: String, err: String?) -> Void in
             if err != nil {
                 print("Error in getting names: \(String(describing: err))")
             }else{
