@@ -17,6 +17,7 @@
 		1A07AB492422F0F500B685DB /* edu in Resources */ = {isa = PBXBuildFile; fileRef = 1A07AB482422F0F500B685DB /* edu */; };
 		1A07AB4B2422F22000B685DB /* PlaceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07AB4A2422F22000B685DB /* PlaceDescription.swift */; };
 		1A07AB4D242BB16600B685DB /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07AB4C242BB16600B685DB /* Stub.swift */; };
+		1A07B968243640DD008F551A /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07B967243640DD008F551A /* PlaceTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1A07AB482422F0F500B685DB /* edu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = edu; sourceTree = "<group>"; };
 		1A07AB4A2422F22000B685DB /* PlaceDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceDescription.swift; path = Assign6jfijewsk/edu/asu/bsse/jfijewsk/Assign6jfijewsk/PlaceDescription.swift; sourceTree = "<group>"; };
 		1A07AB4C242BB16600B685DB /* Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
+		1A07B967243640DD008F551A /* PlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceTableViewController.swift; path = Assign6jfijewsk/edu/asu/bsse/jfijewsk/Assign6jfijewsk/PlaceTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		1A07AB0C2422EDA900B685DB = {
 			isa = PBXGroup;
 			children = (
+				1A07B967243640DD008F551A /* PlaceTableViewController.swift */,
 				1A07AB4C242BB16600B685DB /* Stub.swift */,
 				1A07AB4A2422F22000B685DB /* PlaceDescription.swift */,
 				1A07AB172422EDA900B685DB /* Assign6jfijewsk */,
@@ -268,6 +271,7 @@
 			files = (
 				1A07AB1B2422EDA900B685DB /* ViewController.swift in Sources */,
 				1A07AB4B2422F22000B685DB /* PlaceDescription.swift in Sources */,
+				1A07B968243640DD008F551A /* PlaceTableViewController.swift in Sources */,
 				1A07AB192422EDA900B685DB /* AppDelegate.swift in Sources */,
 				1A07AB4D242BB16600B685DB /* Stub.swift in Sources */,
 			);
