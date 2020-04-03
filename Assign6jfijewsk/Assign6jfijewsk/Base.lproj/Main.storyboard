@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Places-->
+        <!--Root View Controller-->
         <scene sceneID="IFn-ty-y8d">
             <objects>
                 <tableViewController id="LOg-Hm-Vnm" customClass="PlaceTableViewController" customModule="Assign6jfijewsk" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="tjE-ib-y10" detailTextLabel="Uei-qF-ABz" style="IBUITableViewCellStyleSubtitle" id="rUA-pG-KLo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="placeCell" textLabel="tjE-ib-y10" detailTextLabel="Uei-qF-ABz" style="IBUITableViewCellStyleSubtitle" id="rUA-pG-KLo">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rUA-pG-KLo" id="A1K-Uz-k7I">
@@ -52,7 +52,7 @@
                             <outlet property="delegate" destination="LOg-Hm-Vnm" id="Qa4-4T-ECP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All Places" id="apv-PF-emo"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="apv-PF-emo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0h-UY-QCa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

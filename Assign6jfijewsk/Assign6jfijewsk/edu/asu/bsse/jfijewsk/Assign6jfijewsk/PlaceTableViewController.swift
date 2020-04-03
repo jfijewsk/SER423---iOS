@@ -13,7 +13,7 @@ class PlaceTableViewController: UITableViewController {
 
     //var allPlaces:[(name: String)]
     var urlAddress = ""
-
+    var nameOfPlaces : NSArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,18 +37,20 @@ class PlaceTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        print(nameOfPlaces.count)
+        return nameOfPlaces.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath)
 
-        // Configure the cell...
+        //let aPlaceName :(name:String,type: String) = nameOfPlaces[indexPath.row]
+        cell.textLabel?.text = nameOfPlaces[indexPath.row] as? String
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -104,9 +106,7 @@ class PlaceTableViewController: UITableViewController {
     
     // Gets the names of the locations from the server
     func getNames(){
-        var result: [String]
-        var jsonResult = [String: Any]()
-        
+
         let stub = StudentCollectionStub(urlString: urlAddress)
         
         let _:Bool = stub.getNames(callback: { (res: String, err: String?) -> Void in
@@ -119,26 +119,26 @@ class PlaceTableViewController: UITableViewController {
                     do {
                         if let jsonResult = try JSONSerialization.jsonObject(with: data) as? [String: Any]{
                             //print(jsonResult)
-                            if let nameOfPlaces = jsonResult["result"] as? NSArray{
-                                print("Made it here")
+                            self.nameOfPlaces = jsonResult["result"] as! NSArray
+                            self.tableView.reloadData()
 
-                                print(nameOfPlaces)
-                                print(nameOfPlaces.count)
+                            //print("second pass")
+                            //print(nameOfPlaces)
 
-                                
-                        }
                         //print(namesOfPlaces)
                         
-                        let namesOfPlaces2 = jsonResult["result"] as? [[String: String]]
+                        //let namesOfPlaces2 = jsonResult["result"] as? [[String: String]]
                         //print(namesOfPlaces2.count)
                         //print(namesOfPlaces.count)
                         }
                     } catch {
+                        print("Caught error")
                         print(error.localizedDescription)
                     }
                 }
-                //return nil
             }
+            
+
                 
                 // no error, then the result, is a jsonrpc response with the value of result being an array of student names.
                 //print("jsonrpc response to getNames is: \(res)")
@@ -147,6 +147,16 @@ class PlaceTableViewController: UITableViewController {
             //return res
             
         })
+        //print(nameOfPlaces)
+
+        //let nilArray: NSArray = []
+        //return nilArray
+
     }
 
+
+}
+
+func populateCells(){
+    
 }
