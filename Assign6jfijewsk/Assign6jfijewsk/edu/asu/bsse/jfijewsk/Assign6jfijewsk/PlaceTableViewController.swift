@@ -11,12 +11,17 @@ import Foundation
 
 class PlaceTableViewController: UITableViewController {
 
+    @IBOutlet var placeTableView: UITableView!
     //var allPlaces:[(name: String)]
     var urlAddress = ""
     var nameOfPlaces : NSArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.placeTableView.delegate = self
+        self.placeTableView.dataSource = self
+        
         
         // Read in infoPlist values
         readPropertyList()
@@ -37,7 +42,7 @@ class PlaceTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print(nameOfPlaces.count)
+        //print(nameOfPlaces.count)
         return nameOfPlaces.count
     }
 
@@ -120,7 +125,11 @@ class PlaceTableViewController: UITableViewController {
                         if let jsonResult = try JSONSerialization.jsonObject(with: data) as? [String: Any]{
                             //print(jsonResult)
                             self.nameOfPlaces = jsonResult["result"] as! NSArray
-                            self.tableView.reloadData()
+                            
+                            print(self.nameOfPlaces.count)
+                            DispatchQueue.main.async{
+                                self.placeTableView.reloadData()
+                            }
 
                             //print("second pass")
                             //print(nameOfPlaces)
@@ -137,6 +146,11 @@ class PlaceTableViewController: UITableViewController {
                     }
                 }
             }
+            
+
+            
+
+            
             
 
                 
@@ -157,6 +171,4 @@ class PlaceTableViewController: UITableViewController {
 
 }
 
-func populateCells(){
-    
-}
+
