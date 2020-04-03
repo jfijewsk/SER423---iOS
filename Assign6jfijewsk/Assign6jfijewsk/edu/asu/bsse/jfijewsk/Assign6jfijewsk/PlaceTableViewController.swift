@@ -117,8 +117,22 @@ class PlaceTableViewController: UITableViewController {
                 // Get string data and turn it into json
                 if let data = res.data(using: .utf8) {
                     do {
-                        jsonResult = try (JSONSerialization.jsonObject(with: data, options: []) as? [String: Any])!
-                        print(jsonResult)
+                        if let jsonResult = try JSONSerialization.jsonObject(with: data) as? [String: Any]{
+                            //print(jsonResult)
+                            if let nameOfPlaces = jsonResult["result"] as? NSArray{
+                                print("Made it here")
+
+                                print(nameOfPlaces)
+                                print(nameOfPlaces.count)
+
+                                
+                        }
+                        //print(namesOfPlaces)
+                        
+                        let namesOfPlaces2 = jsonResult["result"] as? [[String: String]]
+                        //print(namesOfPlaces2.count)
+                        //print(namesOfPlaces.count)
+                        }
                     } catch {
                         print(error.localizedDescription)
                     }
