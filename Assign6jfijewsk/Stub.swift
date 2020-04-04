@@ -23,7 +23,7 @@
 
 import Foundation
 
-public class StudentCollectionStub {
+public class PlaceCollectionStub {
     
     static var id:Int = 0
     
@@ -63,9 +63,9 @@ public class StudentCollectionStub {
     
     func get(name: String, callback:@escaping (String, String?) -> Void) -> Bool{
         var ret:Bool = false
-        StudentCollectionStub.id = StudentCollectionStub.id + 1
+        PlaceCollectionStub.id = PlaceCollectionStub.id + 1
         do {
-            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"get", "params":[name], "id":StudentCollectionStub.id]
+            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"get", "params":[name], "id":PlaceCollectionStub.id]
             let reqData:Data = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions(rawValue: 0))
             self.asyncHttpPostJSON(url:self.url, data:reqData, completion:callback)
             ret = true
@@ -77,9 +77,9 @@ public class StudentCollectionStub {
     
     func getNames(callback:@escaping(String, String?) -> Void) -> Bool{
         var ret:Bool = false
-        StudentCollectionStub.id = StudentCollectionStub.id + 1
+        PlaceCollectionStub.id = PlaceCollectionStub.id + 1
         do {
-            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"getNames", "params":[ ], "id":StudentCollectionStub.id]
+            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"getNames", "params":[ ], "id":PlaceCollectionStub.id]
             let reqData:Data = try JSONSerialization.data(withJSONObject:dict,               options:JSONSerialization.WritingOptions(rawValue:0))
             self.asyncHttpPostJSON(url:self.url, data:reqData, completion:callback)
             ret = true

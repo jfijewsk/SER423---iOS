@@ -112,7 +112,7 @@ class PlaceTableViewController: UITableViewController {
     // Gets the names of the locations from the server
     func getNames(){
 
-        let stub = StudentCollectionStub(urlString: urlAddress)
+        let stub = PlaceCollectionStub(urlString: urlAddress)
         
         let _:Bool = stub.getNames(callback: { (res: String, err: String?) -> Void in
             if err != nil {
@@ -167,7 +167,15 @@ class PlaceTableViewController: UITableViewController {
         //return nilArray
 
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailViewController = segue.destination as? DetailViewController,
+            let index = tableView.indexPathForSelectedRow?.row
+            else {
+                return
+        }
+        detailViewController.passedPlaceName = nameOfPlaces[index] as! String
+    }
 
 }
 

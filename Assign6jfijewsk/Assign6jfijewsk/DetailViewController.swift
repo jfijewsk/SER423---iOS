@@ -9,17 +9,21 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class DetailViewController: UIViewController {
     
+    @IBOutlet weak var nameLabel: UILabel!
     var urlAddress = ""
+    var passedPlaceName = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
         // Read in infoPlist values
         readPropertyList()
-        getNames()
+        //getNames()
+        print(passedPlaceName)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,10 +56,10 @@ class ViewController: UIViewController {
     
 
     // Gets the names of the locations from the server
-    func getNames(){
-        let stub = StudentCollectionStub(urlString: urlAddress)
+    func getDetails(){
+        let stub = PlaceCollectionStub(urlString: urlAddress)
 
-        let _:Bool = stub.getNames(callback: { (res: String, err: String?) -> Void in
+        let _:Bool = stub.get(name: "ASU-Poly", callback: { (res: String, err: String?) -> Void in
             if err != nil {
                 print("Error in getting names: \(String(describing: err))")
             }else{
