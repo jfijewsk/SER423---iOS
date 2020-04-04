@@ -33,10 +33,10 @@ class DetailViewController: UIViewController {
         
         
         // Read in infoPlist values
-        readPropertyList()
-        //getNames()
-        print(passedPlaceName)
-        getDetails(name: passedPlaceName)
+        DispatchQueue.main.async{
+            self.readPropertyList()
+            self.getDetails(name: self.passedPlaceName)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,17 +117,6 @@ class DetailViewController: UIViewController {
                             self.descriptionLabel.text = self.placeDetails["description"] as? String
                             self.categoryLabel.text = self.placeDetails["category"] as? String
 
-                            print("Here is what I think lat is:")
-                            print(stringElevation)
-
-                            //print("second pass")
-                            //print(nameOfPlaces)
-                            
-                            //print(namesOfPlaces)
-                            
-                            //let namesOfPlaces2 = jsonResult["result"] as? [[String: String]]
-                            //print(namesOfPlaces2.count)
-                            //print(namesOfPlaces.count)
                         }
                     } catch {
                         print("Caught error")

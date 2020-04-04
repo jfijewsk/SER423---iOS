@@ -24,8 +24,10 @@ class PlaceTableViewController: UITableViewController {
         
         
         // Read in infoPlist values
-        readPropertyList()
-        getNames()
+        DispatchQueue.main.async{
+            self.readPropertyList()
+            self.getNames()
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
