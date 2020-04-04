@@ -146,25 +146,9 @@ class PlaceTableViewController: UITableViewController {
                     }
                 }
             }
-            
 
-            
-
-            
-            
-
-                
-                // no error, then the result, is a jsonrpc response with the value of result being an array of student names.
-                //print("jsonrpc response to getNames is: \(res)")
-            //}
-            
-            //return res
             
         })
-        //print(nameOfPlaces)
-
-        //let nilArray: NSArray = []
-        //return nilArray
 
     }
     

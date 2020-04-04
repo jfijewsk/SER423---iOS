@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     var urlAddress = ""
     var passedPlaceName = ""
+    var placeDetails : NSDictionary = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class DetailViewController: UIViewController {
         readPropertyList()
         //getNames()
         print(passedPlaceName)
+        getDetails(name: passedPlaceName)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +58,7 @@ class DetailViewController: UIViewController {
     
 
     // Gets the names of the locations from the server
-    func getDetails(){
+    func getDetails(name: String){
         let stub = PlaceCollectionStub(urlString: urlAddress)
 
         let _:Bool = stub.get(name: "ASU-Poly", callback: { (res: String, err: String?) -> Void in
@@ -64,7 +66,33 @@ class DetailViewController: UIViewController {
                 print("Error in getting names: \(String(describing: err))")
             }else{
                 // no error, then the result, is a jsonrpc response with the value of result being an array of student names.
-                print("jsonrpc response to getNames is: \(res)")
+                //print("jsonrpc response to getNames is: \(res)")
+                // Get string data and turn it into json
+                if let data = res.data(using: .utf8) {
+                    do {
+                        if let jsonResult = try JSONSerialization.jsonObject(with: data) as? [String: Any]{
+                            //print(jsonResult)
+                            self.placeDetails = jsonResult["result"] as! NSDictionary
+                            
+                            print(self.placeDetails)
+                            self.nameLabel.text = self.placeDetails["name"] as! String
+
+                            
+                            //print("second pass")
+                            //print(nameOfPlaces)
+                            
+                            //print(namesOfPlaces)
+                            
+                            //let namesOfPlaces2 = jsonResult["result"] as? [[String: String]]
+                            //print(namesOfPlaces2.count)
+                            //print(namesOfPlaces.count)
+                        }
+                    } catch {
+                        print("Caught error")
+                        print(error.localizedDescription)
+                    }
+                
+            }
             }
             
         })
