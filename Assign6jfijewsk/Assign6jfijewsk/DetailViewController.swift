@@ -12,6 +12,17 @@ import UIKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressTitleLabel: UILabel!
+    @IBOutlet weak var addressLabel1: UILabel!
+    @IBOutlet weak var addressLabel2: UILabel!
+    @IBOutlet weak var addressLabel3: UILabel!
+    @IBOutlet weak var elevationLabel: UILabel!
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var imageLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    
     var urlAddress = ""
     var passedPlaceName = ""
     var placeDetails : NSDictionary = [:]
@@ -75,9 +86,34 @@ class DetailViewController: UIViewController {
                             self.placeDetails = jsonResult["result"] as! NSDictionary
                             
                             print(self.placeDetails)
-                            self.nameLabel.text = self.placeDetails["name"] as! String
-
+                            self.nameLabel.text = self.placeDetails["name"] as? String
+                            self.addressTitleLabel.text = self.placeDetails["address-title"] as? String
                             
+                            var addressArray = (self.placeDetails["address-street"] as? String)?.components(separatedBy: "$")
+                            
+                            self.addressLabel1.text = addressArray?[0]
+                            self.addressLabel2.text = addressArray?[1]
+                            self.addressLabel3.text = addressArray?[2]
+                            
+                            let elevation = self.placeDetails["elevation"] as? NSNumber
+                            let stringElevation = elevation?.stringValue
+                            
+                            let latitude = self.placeDetails["latitude"] as? NSNumber
+                            let stringlatitude = latitude?.stringValue
+                            
+                            let longitude = self.placeDetails["longitude"] as? NSNumber
+                            let stringlongitude = longitude?.stringValue
+                            
+                            self.elevationLabel.text = stringElevation
+                            self.latitudeLabel.text = stringlatitude
+                            self.longitudeLabel.text = stringlongitude
+                            self.imageLabel.text = self.placeDetails["image"] as? String
+                            self.descriptionLabel.text = self.placeDetails["description"] as? String
+                            self.categoryLabel.text = self.placeDetails["category"] as? String
+
+                            print("Here is what I think lat is:")
+                            print(stringElevation)
+
                             //print("second pass")
                             //print(nameOfPlaces)
                             
