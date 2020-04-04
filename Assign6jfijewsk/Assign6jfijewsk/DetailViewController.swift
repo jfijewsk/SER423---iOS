@@ -72,7 +72,7 @@ class DetailViewController: UIViewController {
     func getDetails(name: String){
         let stub = PlaceCollectionStub(urlString: urlAddress)
 
-        let _:Bool = stub.get(name: "ASU-Poly", callback: { (res: String, err: String?) -> Void in
+        let _:Bool = stub.get(name: passedPlaceName, callback: { (res: String, err: String?) -> Void in
             if err != nil {
                 print("Error in getting names: \(String(describing: err))")
             }else{
@@ -91,9 +91,15 @@ class DetailViewController: UIViewController {
                             
                             var addressArray = (self.placeDetails["address-street"] as? String)?.components(separatedBy: "$")
                             
+                            print(addressArray!.count)
+                            
                             self.addressLabel1.text = addressArray?[0]
-                            self.addressLabel2.text = addressArray?[1]
-                            self.addressLabel3.text = addressArray?[2]
+                            if(addressArray!.count > 1){
+                                self.addressLabel2.text = addressArray?[1]
+                            }
+                            if(addressArray!.count > 2){
+                                self.addressLabel3.text = addressArray?[2]
+                            }
                             
                             let elevation = self.placeDetails["elevation"] as? NSNumber
                             let stringElevation = elevation?.stringValue
