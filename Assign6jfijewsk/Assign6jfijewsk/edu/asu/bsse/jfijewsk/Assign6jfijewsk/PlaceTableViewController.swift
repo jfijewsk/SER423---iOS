@@ -11,6 +11,14 @@ import Foundation
 
 class PlaceTableViewController: UITableViewController {
 
+    @IBOutlet weak var addPlaceBtn: UIButton!
+    
+    // Add a target to your button
+    @IBAction func addPlaceTouch(_ sender: Any) {
+        print("Add place Button touched")
+    }
+
+    
     @IBOutlet var placeTableView: UITableView!
     //var allPlaces:[(name: String)]
     var urlAddress = ""
@@ -28,6 +36,7 @@ class PlaceTableViewController: UITableViewController {
             self.readPropertyList()
             self.getNames()
         }
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -164,5 +173,7 @@ class PlaceTableViewController: UITableViewController {
     }
 
 }
+
+
 
 
