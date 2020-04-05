@@ -40,6 +40,7 @@ class AddPlaceViewController: UIViewController {
         else{
             // Make an async call to server and alert user to data being saved
             readPropertyList()
+            savePlace()
             
         }
     }
@@ -85,15 +86,30 @@ class AddPlaceViewController: UIViewController {
         completeAddress += address3
         
         // Try to convert user entered fields to doubles
-        let parseElevation, parseLatitude, parseLongitude : Double
-        do{
-            
+         var parseElevation : Double
+        if let parseElevation = Double(elevationText.text!) {
+            print("double entered")
+        }
+        else{
+            parseElevation = 0
         }
         
-        catch{
-            print("Doubles were not entered correctly")
+        //if parseLatitude= (latitudeText.text!) {
+            print("double entered")
+        //}
+        //else{
+        //    parseLatitude = 0
+        //}
+        
+        //if parseLongitude = (longitudeText.text!) {
+        //    print("double entered")
+       // }
+        //else{
+         //   parseLongitude = 0
         }
-            
+        
+            //parseElevation = Double(elevationText.text!) as! Double
+
         //let newPlace = PlaceDescription(name: nameText.text!, description: descriptionText.text!, category: categoryText.text!, address_title: addressTitleText.text!, address: completeAddress, elevation: elevationText.text!, latitude: latitudeText.text!, longitude: longitudeText.text!)
         
         //let _:Bool = stub.add(callback: {Item: newPlace (res: String, err: String?) -> Void in
