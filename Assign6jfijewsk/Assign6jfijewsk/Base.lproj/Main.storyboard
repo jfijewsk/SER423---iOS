@@ -26,7 +26,9 @@
                                     <rect key="frame" x="8" y="0.0" width="398" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.47879713914475008" green="1" blue="0.58334427950103529" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Add New Place"/>
+                                    <state key="normal" title="Add New Place">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <connections>
                                         <action selector="addPlaceTouch:" destination="LOg-Hm-Vnm" eventType="touchUpInside" id="j8l-c2-RQ7"/>
                                         <segue destination="2BT-bm-QpY" kind="show" id="Ntc-8U-HU6"/>
@@ -416,7 +418,12 @@
                                 <rect key="frame" x="124" y="642" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.47879713909999999" green="1" blue="0.58334427950000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAction:" destination="2BT-bm-QpY" eventType="touchUpInside" id="ICk-qA-veg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
