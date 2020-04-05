@@ -25,8 +25,13 @@ class AddPlaceViewController: UIViewController {
     
     @IBOutlet weak var addBtn: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        descriptionText!.layer.borderWidth = 1
+        descriptionText!.layer.borderColor = UIColor.lightGray.cgColor
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

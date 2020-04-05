@@ -25,7 +25,8 @@
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaR-Dw-ItP">
                                     <rect key="frame" x="8" y="0.0" width="398" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button"/>
+                                    <color key="backgroundColor" red="0.47879713914475008" green="1" blue="0.58334427950103529" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Add New Place"/>
                                     <connections>
                                         <action selector="addPlaceTouch:" destination="LOg-Hm-Vnm" eventType="touchUpInside" id="j8l-c2-RQ7"/>
                                         <segue destination="2BT-bm-QpY" kind="show" id="Ntc-8U-HU6"/>
@@ -412,9 +413,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNF-71-3tX">
-                                <rect key="frame" x="184" y="642" width="46" height="30"/>
+                                <rect key="frame" x="124" y="642" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.47879713909999999" green="1" blue="0.58334427950000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Save"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
