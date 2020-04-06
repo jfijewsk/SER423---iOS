@@ -137,14 +137,19 @@ class AddPlaceViewController: UIViewController {
                     print("Error saving place: \(String(describing: err))")
                 }else{
                     
-                    
+                    let _:Bool = stub.saveToJsonFile(callback:  { (res:String, err:String?) in
+                        if err != nil {
+                            print("Error saving place: \(String(describing: err))")
+                        }else{
+                            print("I saved the json file!")
+                            print(serialNewPlace)
                 }
+                    
                 
                 
             })
             }
-        catch{
-            
+            })
         }
 
     }
