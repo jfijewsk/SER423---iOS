@@ -86,16 +86,30 @@ class AddPlaceViewController: UIViewController {
         completeAddress += address3
         
         // Try to convert user entered fields to doubles
-         var parseElevation : Double
+        var resultParseElevation :Double = 0
         if let parseElevation = Double(elevationText.text!) {
             print("double entered")
-        }
-        else{
-            parseElevation = 0
+            resultParseElevation = parseElevation
+            print(parseElevation)
         }
         
-        //if parseLatitude= (latitudeText.text!) {
+        var resultParseLatitude :Double = 0
+        if let parseLatitude = Double(latitudeText.text!) {
             print("double entered")
+            resultParseLatitude = parseLatitude
+            //print(parseLatitude)
+        }
+        
+        var resultParseLongitude :Double = 0
+        if let parseLongitude = Double(longitudeText.text!) {
+            print("double entered")
+            resultParseLongitude = parseLongitude
+            //print(parseElevation)
+        }
+
+        
+        //if parseLatitude= (latitudeText.text!) {
+            //print("double entered")
         //}
         //else{
         //    parseLatitude = 0
@@ -106,22 +120,23 @@ class AddPlaceViewController: UIViewController {
        // }
         //else{
          //   parseLongitude = 0
-        }
+        //}
         
             //parseElevation = Double(elevationText.text!) as! Double
 
-        //let newPlace = PlaceDescription(name: nameText.text!, description: descriptionText.text!, category: categoryText.text!, address_title: addressTitleText.text!, address: completeAddress, elevation: elevationText.text!, latitude: latitudeText.text!, longitude: longitudeText.text!)
+        let newPlace = PlaceDescription(name: nameText.text!, description: descriptionText.text!, category: categoryText.text!, address_title: addressTitleText.text!, address: completeAddress, elevation: resultParseElevation, latitude: resultParseLatitude, longitude: resultParseLongitude)
         
-        //let _:Bool = stub.add(callback: {Item: newPlace (res: String, err: String?) -> Void in
-            //if err != nil {
-                //print("Error saving place: \(String(describing: err))")
-           // }else{
+        
+        let _:Bool = stub.add(newPlace: newPlace, callback:  { (res:String, err:String?) in
+            if err != nil {
+                print("Error saving place: \(String(describing: err))")
+            }else{
                 
                 
-           // }
+            }
             
             
-       // })
+        })
 
     }
 
