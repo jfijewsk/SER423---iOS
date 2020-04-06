@@ -75,7 +75,7 @@ public class PlaceCollectionStub {
         return ret
     }
     
-    func add(newPlace: PlaceDescription, callback:@escaping (String, String?) -> Void) -> Bool{
+    func add(newPlace: String, callback:@escaping (String, String?) -> Void) -> Bool{
         var ret:Bool = false
         PlaceCollectionStub.id = PlaceCollectionStub.id + 1
         do {

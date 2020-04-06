@@ -86,27 +86,29 @@ class AddPlaceViewController: UIViewController {
         completeAddress += address3
         
         // Try to convert user entered fields to doubles
-        var resultParseElevation :Double = 0
-        if let parseElevation = Double(elevationText.text!) {
-            print("double entered")
-            resultParseElevation = parseElevation
-            print(parseElevation)
-        }
-        
-        var resultParseLatitude :Double = 0
-        if let parseLatitude = Double(latitudeText.text!) {
-            print("double entered")
-            resultParseLatitude = parseLatitude
-            //print(parseLatitude)
-        }
-        
-        var resultParseLongitude :Double = 0
-        if let parseLongitude = Double(longitudeText.text!) {
-            print("double entered")
-            resultParseLongitude = parseLongitude
+        var resultParseElevation :Int = 0
+        if let parseElevation = Int (elevationText.text!) {
+            resultParseElevation =  parseElevation
+            //print("double entered")
+            //resultParseElevation = parseElevation
             //print(parseElevation)
         }
-
+        
+        var resultParseLatitude :Int = 0
+        if let parseLatitude = Int (latitudeText.text!) {
+            resultParseLatitude = parseLatitude
+            //print("double entered")
+            //resultParseElevation = parseElevation
+            //print(parseElevation)
+        }
+        
+        var resultParseLongitude :Int = 0
+        if let parseLongitude = Int (longitudeText.text!) {
+            resultParseLongitude = parseLongitude
+            //print("double entered")
+            //resultParseElevation = parseElevation
+            //print(parseElevation)
+        }
         
         //if parseLatitude= (latitudeText.text!) {
             //print("double entered")
@@ -126,17 +128,24 @@ class AddPlaceViewController: UIViewController {
 
         let newPlace = PlaceDescription(name: nameText.text!, description: descriptionText.text!, category: categoryText.text!, address_title: addressTitleText.text!, address: completeAddress, elevation: resultParseElevation, latitude: resultParseLatitude, longitude: resultParseLongitude)
         
-        
-        let _:Bool = stub.add(newPlace: newPlace, callback:  { (res:String, err:String?) in
-            if err != nil {
-                print("Error saving place: \(String(describing: err))")
-            }else{
+        do{
+            let serialNewPlace = newPlace.toJsonString()
+            
+            
+            let _:Bool = stub.add(newPlace: serialNewPlace, callback:  { (res:String, err:String?) in
+                if err != nil {
+                    print("Error saving place: \(String(describing: err))")
+                }else{
+                    
+                    
+                }
                 
                 
+            })
             }
+        catch{
             
-            
-        })
+        }
 
     }
 
