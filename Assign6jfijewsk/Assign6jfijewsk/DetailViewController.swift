@@ -96,13 +96,21 @@ class DetailViewController: UIViewController {
                             //print(jsonResult)
                             self.placeDetails = jsonResult["result"] as! NSDictionary
                             
+                            
+                            if(self.placeDetails["name"] == nil){
+                                print("Server could not find that location")
+                                _ = self.navigationController?.popViewController(animated: true)
+                                return
+                            }
+                            print("JSON value is:")
+                            
                             print(self.placeDetails)
                             self.nameLabel.text = self.placeDetails["name"] as? String
                             self.addressTitleLabel.text = self.placeDetails["address-title"] as? String
                             
                             var addressArray = (self.placeDetails["address-street"] as? String)?.components(separatedBy: "$")
                             
-                            print(addressArray!.count)
+                            //print(addressArray!.count)
                             
                             self.addressLabel1.text = addressArray?[0]
                             if(addressArray!.count > 1){
@@ -144,7 +152,7 @@ class DetailViewController: UIViewController {
     func remove(name: String){
         let stub = PlaceCollectionStub(urlString: urlAddress)
         
-        let _:Bool = stub.get(name: passedPlaceName, callback: { (res: String, err: String?) -> Void in
+        let _:Bool = stub.remove(name: passedPlaceName, callback: { (res: String, err: String?) -> Void in
             if err != nil {
                 print("Error in getting names: \(String(describing: err))")
             }else{

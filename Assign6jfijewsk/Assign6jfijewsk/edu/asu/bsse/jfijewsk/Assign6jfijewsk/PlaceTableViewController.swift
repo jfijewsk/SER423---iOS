@@ -36,14 +36,20 @@ class PlaceTableViewController: UITableViewController {
             self.readPropertyList()
             self.getNames()
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        DispatchQueue.main.async{
+            self.placeTableView.reloadData()
+        }
+    }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+    
 
     // MARK: - Table view data source
 
@@ -64,7 +70,7 @@ class PlaceTableViewController: UITableViewController {
         //let aPlaceName :(name:String,type: String) = nameOfPlaces[indexPath.row]
         cell.textLabel?.text = nameOfPlaces[indexPath.row] as? String
 
-        return cell
+            return cell
     }
     
 
