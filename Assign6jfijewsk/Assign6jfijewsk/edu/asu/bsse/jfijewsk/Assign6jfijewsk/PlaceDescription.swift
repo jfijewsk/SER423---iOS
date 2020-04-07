@@ -55,7 +55,7 @@ struct PlaceDescription: Codable{
         self.name = dict["name"] as! String
         self.description = dict["description"] as! String
         self.category = dict["category"] as! String
-        self.address_title = dict["address_title"] as! String
+        self.address_title = dict["address-title"] as! String
         self.address = dict["address"] as! String
         self.image = dict["image"] as! String
 
@@ -66,7 +66,7 @@ struct PlaceDescription: Codable{
     
     func toJsonString() -> String {
         var jsonStr = "";
-        let dict = ["name": name, "description": description, "category":category,"address_title": address_title, "image": image,"address-street": address, "elevation":elevation,"latitude": latitude, "longitude":longitude ] as [String : Any]
+        let dict = ["name": name, "description": description, "category":category,"address-title": address_title, "image": image,"address-street": address, "elevation":elevation,"latitude": latitude, "longitude":longitude ] as [String : Any]
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
             // here "jsonData" is the dictionary encoded in JSON data
@@ -78,7 +78,7 @@ struct PlaceDescription: Codable{
     }
     
     func toDict() -> [String:Any] {
-        let dict = ["name": name, "description": description, "category":category,"address_title": address_title, "image": image,"address-street": address, "elevation":elevation,"latitude": latitude, "longitude":longitude ] as [String : Any]
+        let dict = ["name": name, "description": description, "category":category,"address-title": address_title, "image": image,"address-street": address, "elevation":elevation,"latitude": latitude, "longitude":longitude ] as [String : Any]
         return dict
     }
     

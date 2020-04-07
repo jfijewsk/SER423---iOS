@@ -127,20 +127,7 @@ class AddPlaceViewController: UIViewController {
             //parseElevation = Double(elevationText.text!) as! Double
 
         let newPlace = PlaceDescription(name: nameText.text!, description: descriptionText.text!, category: categoryText.text!, address_title: addressTitleText.text!, image:imageText.text!, address: completeAddress, elevation: resultParseElevation, latitude: resultParseLatitude, longitude: resultParseLongitude)
-        
-        let testString : String = """
-                                  {
-                                    "address-title" : "ASU Software Engineering",
-                                    "address-street" : "7171 E Sonoran Arroyo Mall$Peralta Hall 230$Mesa AZ 85212",
-                                    "elevation" : 1300.0,
-                                    "latitude" : 33.306388,
-                                    "longitude" : -111.679121,
-                                    "name" : "ASU-Poly",
-                                    "image" : "asupoly",
-                                    "description" : "Home of ASUs Software Engineering Programs",
-                                    "category" : "School"
-                                  }
-                                """
+
         
         do{
             let serialNewPlace = newPlace.toJsonString()
@@ -159,6 +146,13 @@ class AddPlaceViewController: UIViewController {
                             print("Error saving place: \(String(describing: err))")
                         }else{
                             print("I saved the json file!")
+                            let alert = UIAlertController(title: "Place Added!", message: "\(self.nameText.text!) added to the library!", preferredStyle: .alert)
+                            
+                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                                _ = self.navigationController?.popViewController(animated: true)
+                            }))
+                            
+                            self.present(alert, animated: true)
                 }
                     
                 
