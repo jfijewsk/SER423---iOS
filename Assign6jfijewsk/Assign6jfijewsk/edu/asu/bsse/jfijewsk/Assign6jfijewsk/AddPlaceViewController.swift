@@ -146,17 +146,19 @@ class AddPlaceViewController: UIViewController {
             let serialNewPlace = newPlace.toJsonString()
             
             
-            let _:Bool = stub.add(newPlace: testString, callback:  { (res:String, err:String?) in
+            let _:Bool = stub.add(newPlace: newPlace, callback:  { (res:String, err:String?) in
                 if err != nil {
                     print("Error saving place: \(String(describing: err))")
                 }else{
-                    print(res)
+                    //print(res)
+                    print("Sending to server:")
+                    print(serialNewPlace)
+
                     let _:Bool = stub.saveToJsonFile(callback:  { (res:String, err:String?) in
                         if err != nil {
                             print("Error saving place: \(String(describing: err))")
                         }else{
                             print("I saved the json file!")
-                            print(testString)
                 }
                     
                 

@@ -75,11 +75,11 @@ public class PlaceCollectionStub {
         return ret
     }
     
-    func add(newPlace: String, callback:@escaping (String, String?) -> Void) -> Bool{
+    func add(newPlace: PlaceDescription, callback:@escaping (String, String?) -> Void) -> Bool{
         var ret:Bool = false
         PlaceCollectionStub.id = PlaceCollectionStub.id + 1
         do {
-            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"add", "params":[newPlace], "id":PlaceCollectionStub.id]
+            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"add", "params":[newPlace.toDict()], "id":PlaceCollectionStub.id]
             let reqData:Data = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions(rawValue: 0))
             self.asyncHttpPostJSON(url:self.url, data:reqData, completion:callback)
             ret = true

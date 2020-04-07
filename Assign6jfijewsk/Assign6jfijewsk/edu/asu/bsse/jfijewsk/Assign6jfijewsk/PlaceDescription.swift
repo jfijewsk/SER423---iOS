@@ -77,6 +77,11 @@ struct PlaceDescription: Codable{
         return jsonStr
     }
     
+    func toDict() -> [String:Any] {
+        let dict = ["name": name, "description": description, "category":category,"address_title": address_title, "image": image,"address-street": address, "elevation":elevation,"latitude": latitude, "longitude":longitude ] as [String : Any]
+        return dict
+    }
+    
     /*
     
     // JSON Contructor
