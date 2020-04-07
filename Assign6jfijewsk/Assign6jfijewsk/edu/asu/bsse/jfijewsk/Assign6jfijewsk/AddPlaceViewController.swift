@@ -129,7 +129,17 @@ class AddPlaceViewController: UIViewController {
         let newPlace = PlaceDescription(name: nameText.text!, description: descriptionText.text!, category: categoryText.text!, address_title: addressTitleText.text!, image:imageText.text!, address: completeAddress, elevation: resultParseElevation, latitude: resultParseLatitude, longitude: resultParseLongitude)
         
         let testString : String = """
-                                {"name" : "James"}
+                                  {
+                                    "address-title" : "ASU Software Engineering",
+                                    "address-street" : "7171 E Sonoran Arroyo Mall$Peralta Hall 230$Mesa AZ 85212",
+                                    "elevation" : 1300.0,
+                                    "latitude" : 33.306388,
+                                    "longitude" : -111.679121,
+                                    "name" : "ASU-Poly",
+                                    "image" : "asupoly",
+                                    "description" : "Home of ASUs Software Engineering Programs",
+                                    "category" : "School"
+                                  }
                                 """
         
         do{

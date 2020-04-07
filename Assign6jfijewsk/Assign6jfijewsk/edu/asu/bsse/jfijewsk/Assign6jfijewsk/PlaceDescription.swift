@@ -57,7 +57,7 @@ struct PlaceDescription: Codable{
         self.category = dict["category"] as! String
         self.address_title = dict["address_title"] as! String
         self.address = dict["address"] as! String
-        self.image = dict["address"] as! String
+        self.image = dict["image"] as! String
 
         self.elevation = dict["elevation"] as! Int
         self.latitude = dict["latitude"] as! Int
