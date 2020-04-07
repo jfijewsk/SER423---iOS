@@ -126,23 +126,27 @@ class AddPlaceViewController: UIViewController {
         
             //parseElevation = Double(elevationText.text!) as! Double
 
-        let newPlace = PlaceDescription(name: nameText.text!, description: descriptionText.text!, category: categoryText.text!, address_title: addressTitleText.text!, address: completeAddress, elevation: resultParseElevation, latitude: resultParseLatitude, longitude: resultParseLongitude)
+        let newPlace = PlaceDescription(name: nameText.text!, description: descriptionText.text!, category: categoryText.text!, address_title: addressTitleText.text!, image:imageText.text!, address: completeAddress, elevation: resultParseElevation, latitude: resultParseLatitude, longitude: resultParseLongitude)
+        
+        let testString : String = """
+                                {"name" : "James"}
+                                """
         
         do{
             let serialNewPlace = newPlace.toJsonString()
             
             
-            let _:Bool = stub.add(newPlace: serialNewPlace, callback:  { (res:String, err:String?) in
+            let _:Bool = stub.add(newPlace: testString, callback:  { (res:String, err:String?) in
                 if err != nil {
                     print("Error saving place: \(String(describing: err))")
                 }else{
-                    
+                    print(res)
                     let _:Bool = stub.saveToJsonFile(callback:  { (res:String, err:String?) in
                         if err != nil {
                             print("Error saving place: \(String(describing: err))")
                         }else{
                             print("I saved the json file!")
-                            print(serialNewPlace)
+                            print(testString)
                 }
                     
                 

@@ -229,6 +229,9 @@
                                 <rect key="frame" x="145" y="616" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete Place"/>
+                                <connections>
+                                    <action selector="deleteAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aqW-Ew-hoK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcQ-eK-uYT">
                                 <rect key="frame" x="20" y="520" width="75" height="21"/>
@@ -254,6 +257,7 @@
                         <outlet property="addressLabel3" destination="uTw-dU-wF3" id="4jP-Mu-FCC"/>
                         <outlet property="addressTitleLabel" destination="Uka-am-7sr" id="qyr-0r-l2m"/>
                         <outlet property="categoryLabel" destination="0Ta-ML-7bc" id="2c8-5C-H0k"/>
+                        <outlet property="deleteBtn" destination="1Li-9c-49v" id="uv3-ge-0lx"/>
                         <outlet property="descriptionLabel" destination="91x-08-dQW" id="4ly-Sc-qMf"/>
                         <outlet property="elevationLabel" destination="gke-JU-tgA" id="zEI-wy-FCf"/>
                         <outlet property="imageLabel" destination="84D-Z5-xar" id="9iJ-Td-omU"/>

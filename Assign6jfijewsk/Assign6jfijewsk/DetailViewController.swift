@@ -23,6 +23,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    
+    @IBOutlet weak var deleteBtn: UIButton!
+    
     var urlAddress = ""
     var passedPlaceName = ""
     var placeDetails : NSDictionary = [:]
@@ -38,6 +41,14 @@ class DetailViewController: UIViewController {
             self.getDetails(name: self.passedPlaceName)
         }
     }
+    
+    //Action for user hitting delete
+    @IBAction func deleteAction(_ sender: Any) {
+        DispatchQueue.main.async{
+            self.remove(name: self.passedPlaceName)
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -128,5 +139,29 @@ class DetailViewController: UIViewController {
             
         })
 }
+    
+    // Gets the names of the locations from the server
+    func remove(name: String){
+        let stub = PlaceCollectionStub(urlString: urlAddress)
+        
+        let _:Bool = stub.get(name: passedPlaceName, callback: { (res: String, err: String?) -> Void in
+            if err != nil {
+                print("Error in getting names: \(String(describing: err))")
+            }else{
+                let alert = UIAlertController(title: "Place deleted", message: "\(self.passedPlaceName) removed from the library", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                    _ = self.navigationController?.popViewController(animated: true)
+                }))
+                
+                self.present(alert, animated: true)
+                
+                
+                    
+                }
+            
+            
+        })
+    }
 }
 

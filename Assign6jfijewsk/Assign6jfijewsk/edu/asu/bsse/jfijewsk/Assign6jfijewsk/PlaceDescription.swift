@@ -30,6 +30,7 @@ struct PlaceDescription: Codable{
     var category : String
     var address_title : String
     var address : String
+    var image: String
     var elevation : Int
     var latitude : Int
     var longitude : Int
@@ -38,7 +39,7 @@ struct PlaceDescription: Codable{
     
     
     // Constructor for setting up new placeDescription
-    init(name : String, description : String, category : String, address_title : String, address : String, elevation : Int, latitude : Int, longitude : Int) {
+    init(name : String, description : String, category : String, address_title : String,image :String , address : String, elevation : Int, latitude : Int, longitude : Int) {
         self.name = name
         self.description = description
         self.category = category
@@ -47,6 +48,7 @@ struct PlaceDescription: Codable{
         self.elevation = elevation
         self.latitude = latitude
         self.longitude = longitude
+        self.image = image
     }
     
     init(dict: [String:Any]){
@@ -55,6 +57,8 @@ struct PlaceDescription: Codable{
         self.category = dict["category"] as! String
         self.address_title = dict["address_title"] as! String
         self.address = dict["address"] as! String
+        self.image = dict["address"] as! String
+
         self.elevation = dict["elevation"] as! Int
         self.latitude = dict["latitude"] as! Int
         self.longitude = dict["longitude"] as! Int
@@ -62,7 +66,7 @@ struct PlaceDescription: Codable{
     
     func toJsonString() -> String {
         var jsonStr = "";
-        let dict = ["name": name, "description": description, "category":category,"address_title": address_title, "address": address, "elevation":elevation,"latitude": latitude, "longitude":longitude ] as [String : Any]
+        let dict = ["name": name, "description": description, "category":category,"address_title": address_title, "image": image,"address-street": address, "elevation":elevation,"latitude": latitude, "longitude":longitude ] as [String : Any]
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
             // here "jsonData" is the dictionary encoded in JSON data
