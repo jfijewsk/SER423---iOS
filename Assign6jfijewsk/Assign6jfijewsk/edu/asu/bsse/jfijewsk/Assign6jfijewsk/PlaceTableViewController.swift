@@ -40,6 +40,7 @@ class PlaceTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool){
         DispatchQueue.main.async{
+            self.getNames()
             self.placeTableView.reloadData()
         }
     }
@@ -59,6 +60,8 @@ class PlaceTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        //print(nameOfPlaces.count)
+        //print("Current count of all places on server is:")
         //print(nameOfPlaces.count)
         return nameOfPlaces.count
     }
